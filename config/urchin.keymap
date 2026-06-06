@@ -79,9 +79,9 @@
         };
 
         game {
-            bindings = <&tog 3>;
+            bindings = <&tog 1>;
             key-positions = <30 33>;
-            layers = <0 3>;
+            layers = <0 1>;
         };
     };
 
@@ -90,16 +90,25 @@
 
         base {
             bindings = <
-&kp Q  &kp W  &kp E  &kp R           &kp T          &kp Y             &kp U              &kp I  &kp O      &kp P
-&kp A  &kp S  &kp D  &kp F           &kp G          &kp H             &kp J              &kp K  &kp L      &kp SEMI
-&kp Z  &kp X  &kp C  &kp V           &kp B          &kp B             &kp N              &kp M  &kp COMMA  &kp DOT
-                     &lt 1 LEFT_GUI  &mt LCTRL TAB  &mt RSHIFT SPACE  &lt (2) LS(SPACE)
+&kp Q  &kp W  &kp E  &kp R           &kp T      &kp Y             &kp U              &kp I  &kp O      &kp P
+&kp A  &kp S  &kp D  &kp F           &kp G      &kp H             &kp J              &kp K  &kp L      &kp SEMI
+&kp Z  &kp X  &kp C  &kp V           &kp B      &kp B             &kp N              &kp M  &kp COMMA  &kp DOT
+                     &lt 2 LEFT_GUI  &kp LCTRL  &mt RSHIFT SPACE  &lt (3) LS(SPACE)
+            >;
+        };
+
+        game {
+            bindings = <
+&kp ESC    &kp Q  &kp W  &kp E  &kp R      &kp N3  &kp N4  &kp N5    &kp N6   &kp N7
+&kp LSHFT  &kp A  &kp S  &kp D  &kp F      &kp N2  &kp L   &kp SEMI  &kp SQT  &kp RSHFT
+&kp LCTRL  &kp Z  &kp C  &kp X  &kp V      &kp N1  &none   &none     &none    &kp RCTRL
+                         &mo 2  &kp SPACE  &kp J   &none
             >;
         };
 
         mode {
             bindings = <
-&kp CAPSLOCK  &kp LC(LA(LEFT))  &kp ESC    &kp LC(LA(RIGHT))  &kp TAB     &none              &kp HOME   &kp END    &none         &kp BACKSPACE
+&kp ESCAPE    &kp LC(LA(LEFT))  &kp F2     &kp LC(LA(RIGHT))  &kp TAB     &kp F5             &kp HOME   &kp END    &none         &kp BACKSPACE
 &kp LEFT_WIN  &kp LALT          &kp LSHFT  &kp LCTRL          &kp DELETE  &kp LEFT           &kp DOWN   &kp UP     &kp RIGHT     &kp RET
 &none         &none             &none      &none              &none       &kp C_VOLUME_DOWN  &kp PG_DN  &kp PG_UP  &kp C_VOL_UP  &none
                                            &none              &none       &caps_word         &none
@@ -112,15 +121,6 @@
 &none  &kp N4  &kp N5  &kp N6  &kp UNDERSCORE  &kp PLUS   &kp DOLLAR       &kp PERCENT   &kp CARET  &kp RET
 &none  &kp N7  &kp N8  &kp N9  &kp GRAVE       &kp TILDE  &kp AMPERSAND    &kp ASTERISK  &kp PIPE   &none
                        &kp N0  &none           &none      &none
-            >;
-        };
-
-        game {
-            bindings = <
-&kp ESC    &kp Q  &kp W  &kp E     &kp R      &kp PRINTSCREEN    &kp N1     &kp N2     &none         &none
-&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &none              &kp L      &kp SEMI   &kp SQT       &kp RSHFT
-&kp LCTRL  &kp Z  &kp C  &kp X     &kp V      &kp C_VOLUME_DOWN  &kp PG_DN  &kp PG_UP  &kp C_VOL_UP  &kp RCTRL
-                         &kp LALT  &kp SPACE  &kp TAB            &none
             >;
         };
     };
