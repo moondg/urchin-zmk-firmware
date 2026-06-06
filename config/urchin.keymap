@@ -120,7 +120,7 @@
 &kp ESC    &kp Q  &kp W  &kp E     &kp R      &kp PRINTSCREEN    &kp N1     &kp N2     &none         &none
 &kp LSHFT  &kp A  &kp S  &kp D     &kp F      &none              &kp L      &kp SEMI   &kp SQT       &kp RSHFT
 &kp LCTRL  &kp Z  &kp C  &kp X     &kp V      &kp C_VOLUME_DOWN  &kp PG_DN  &kp PG_UP  &kp C_VOL_UP  &kp RCTRL
-                         &kp LALT  &kp SPACE  &kp RALT           &none
+                         &kp LALT  &kp SPACE  &kp TAB            &none
             >;
         };
     };
