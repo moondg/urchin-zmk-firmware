@@ -51,26 +51,31 @@
         backslash {
             bindings = <&kp BACKSLASH>;
             key-positions = <20 21>;
+            layers = <0>;
         };
 
         langle {
             bindings = <&kp LESS_THAN>;
             key-positions = <21 22>;
+            layers = <0>;
         };
 
         squote {
             bindings = <&kp SINGLE_QUOTE>;
             key-positions = <22 23>;
+            layers = <0>;
         };
 
         dquote {
             bindings = <&kp DOUBLE_QUOTES>;
             key-positions = <26 27>;
+            layers = <0>;
         };
 
         rangle {
             bindings = <&kp GREATER_THAN>;
             key-positions = <27 28>;
+            layers = <0>;
         };
 
         slash {
