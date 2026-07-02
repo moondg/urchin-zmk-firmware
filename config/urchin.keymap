@@ -90,68 +90,33 @@
             layers = <0 1>;
         };
 
-        l_reset {
-            bindings = <&bootloader_ht 0 0>;
+        bt0 {
+            bindings = <&bt BT_SEL 0>;
             key-positions = <30 31>;
             layers = <0>;
         };
 
-        r_reset {
-            bindings = <&bootloader_ht 0 0>;
+        bt1 {
+            bindings = <&bt BT_SEL 1>;
             key-positions = <32 33>;
+            layers = <0>;
+        };
+
+        bt_clr {
+            bindings = <&bt BT_CLR>;
+            key-positions = <30 31 33 32>;
             layers = <0>;
         };
     };
 
     behaviors {
-        auto_caps_tab_dance: auto_caps_tab_dance {
-            compatible = "zmk,behavior-tap-dance";
-            label = "AUTO_CAPS_TAB_DANCE";
-            #binding-cells = <0>;
-            bindings = <&kp CAPSLOCK>, <&caps_word>;
-        };
-
-        auto_caps: auto_caps {
+        auto_shift: auto_shift {
             compatible = "zmk,behavior-hold-tap";
-            label = "AUTO_CAPS";
-            bindings = <&kp>, <&auto_caps_tab_dance>;
+            label = "AUTO_SHIFT";
+            bindings = <&kp>, <&caps_word>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-        };
-
-        bt_ht: bt_ht {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <3000>;
-            bindings = <&bt_clear>, <&bt_select>;
-
-            label = "BT_HT";
-        };
-
-        bootloader_ht: bootloader_ht {
-            compatible = "zmk,behavior-hold-tap";
-            label = "BOOTLOADER_HT";
-            bindings = <&bootloader>, <&none>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <3000>;
-            flavor = "tap-preferred";
-        };
-    };
-
-    macros {
-        bt_select: bt_select {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&macro_param_1to1 &bt MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
-        };
-
-        bt_clear: bt_clear {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&macro_param_1to1 &bt MACRO_PLACEHOLDER MACRO_PLACEHOLDER &bt BT_CLR>;
         };
     };
 
@@ -170,26 +135,26 @@
         game {
             bindings = <
 &kp ESC    &kp Q  &kp W  &kp E  &kp R      &kp N3  &kp N4    &kp N5    &kp N6     &kp N7
-&kp LSHFT  &kp A  &kp S  &kp D  &kp F      &kp N2  &kp J     &kp UP    &kp L      &kp RSHFT
+&kp LSHFT  &kp A  &kp S  &kp D  &kp F      &kp N2  &kp K     &kp UP    &kp L      &kp RSHFT
 &kp LCTRL  &kp Z  &kp X  &kp C  &kp V      &kp N1  &kp LEFT  &kp DOWN  &kp RIGHT  &kp RCTRL
-                         &mo 2  &kp SPACE  &kp H   &none
+                         &mo 2  &kp SPACE  &kp J   &mo 3
             >;
         };
 
         mod {
             bindings = <
-&kp ESCAPE    &kp LC(LA(LEFT))  &kp F2              &kp LC(LA(RIGHT))  &kp TAB          &kp C_BRIGHTNESS_DEC  &kp HOME    &kp END    &kp C_BRIGHTNESS_INC  &kp BACKSPACE
-&kp LEFT_WIN  &kp LALT          &auto_caps LSHFT 0  &kp LCTRL          &kp DELETE       &kp LEFT              &kp DOWN    &kp UP     &kp RIGHT             &kp RET
-&none         &kp F3            &kp F4              &kp F5             &kp PRINTSCREEN  &kp C_VOLUME_DOWN     &kp PG_DN   &kp PG_UP  &kp C_VOL_UP          &kp DELETE
-                                                    &none              &none            &bt_ht 0 0            &bt_ht 1 1
+&kp ESCAPE    &kp LC(LA(LEFT))  &kp F2               &kp LC(LA(RIGHT))  &kp TAB          &kp C_BRIGHTNESS_DEC  &kp HOME   &kp END    &kp C_BRIGHTNESS_INC  &kp BACKSPACE
+&kp LEFT_WIN  &kp LALT          &auto_shift LSHFT 0  &kp LCTRL          &kp DELETE       &kp LEFT              &kp DOWN   &kp UP     &kp RIGHT             &kp RET
+&kp CAPSLOCK  &kp F3            &kp F4               &kp F5             &kp PRINTSCREEN  &kp C_VOLUME_DOWN     &kp PG_DN  &kp PG_UP  &kp C_VOL_UP          &kp DELETE
+                                                     &none              &none            &none                 &none
             >;
         };
 
         symbol {
             bindings = <
-&kp ASTERISK  &kp N1  &kp N2  &kp N3  &kp PLUS   &kp EQUAL  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH   &kp BSPC
-&kp SLASH     &kp N4  &kp N5  &kp N6  &kp MINUS  &kp UNDER  &kp DOLLAR       &kp PERCENT  &kp CARET  &kp RET
-&kp DOT       &kp N7  &kp N8  &kp N9  &kp COMMA  &kp TILDE  &kp AMPERSAND    &kp GRAVE    &kp PIPE   &kp DELETE
+&kp ASTERISK  &kp N1  &kp N2  &kp N3  &kp PLUS   &kp CARET  &kp AT     &kp HASH   &kp DLLR   &kp BSPC
+&kp SLASH     &kp N4  &kp N5  &kp N6  &kp MINUS  &kp EXCL   &kp PIPE   &kp AMPS   &kp EQUAL  &kp RET
+&kp DOT       &kp N7  &kp N8  &kp N9  &kp GRAVE  &kp UNDER  &kp PRCNT  &kp TILDE  &kp QMARK  &kp DELETE
                               &kp N0  &none      &none      &none
             >;
         };
